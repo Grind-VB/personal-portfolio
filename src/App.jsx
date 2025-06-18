@@ -1,32 +1,29 @@
-import { useState, useEffect } from 'react'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import Home from './pages/Home'
-import About from './pages/About'
-import Projects from './pages/Projects'
-import Contact from './pages/Contact'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
-function App() {
-  const [darkMode, setDarkMode] = useState(false)
+import Home from './pages/Home';
+import About from './pages/About';
+import Projects from './pages/Projects';
+import Contact from './pages/Contact';
 
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-    }
-  }, [darkMode])
-
+const App = () => {
   return (
-    <div className="bg-white text-black dark:bg-gray-900 dark:text-white transition duration-300">
-      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-      <Home />
-      <About />
-      <Projects />
-      <Contact />
-      <Footer />
-    </div>
-  )
-}
+    <Router>
+      <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900">
+        <Navbar />
+        <main className="flex-grow px-4">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
+  );
+};
 
-export default App
+export default App;
