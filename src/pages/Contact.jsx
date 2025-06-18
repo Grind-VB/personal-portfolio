@@ -6,11 +6,17 @@ const Contact = () => {
         Have a question, collaboration idea, or just want to say hello? I'd love to hear from you.
         Fill out the form below or reach out via email. I’ll get back to you as soon as possible.
       </p>
-      <form className="flex flex-col gap-5" onSubmit={(e) => e.preventDefault()}>
+
+      <form
+        action="https://formspree.io/f/xwpbqaln" // 🔁 Replace this with your actual Formspree form ID
+        method="POST"
+        className="flex flex-col gap-5"
+      >
         <label className="flex flex-col text-sm">
           <span className="mb-1 font-medium">Name</span>
           <input
             type="text"
+            name="name"
             placeholder="Your full name"
             required
             className="p-3 border border-gray-300 rounded dark:bg-gray-800 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -21,6 +27,7 @@ const Contact = () => {
           <span className="mb-1 font-medium">Email</span>
           <input
             type="email"
+            name="email"
             placeholder="you@example.com"
             required
             className="p-3 border border-gray-300 rounded dark:bg-gray-800 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -30,6 +37,7 @@ const Contact = () => {
         <label className="flex flex-col text-sm">
           <span className="mb-1 font-medium">Message</span>
           <textarea
+            name="message"
             placeholder="Type your message here..."
             required
             className="p-3 border border-gray-300 rounded h-32 resize-none dark:bg-gray-800 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
