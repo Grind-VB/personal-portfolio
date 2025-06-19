@@ -24,7 +24,7 @@ const Navbar = () => {
           <li><Link to="/contact">Contact</Link></li>
           <li>
             <a
-              href="/resume.pdf"
+              href="/personal-portfolio/resume.html"  // ✅ Full relative path for GitHub Pages
               target="_blank"
               rel="noopener noreferrer"
               className="px-3 py-1 border border-gray-700 dark:border-white rounded hover:bg-gray-200 dark:hover:bg-gray-800"
